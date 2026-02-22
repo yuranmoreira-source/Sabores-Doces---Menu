@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Sabores Doces</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Garamond', serif;
+            background: linear-gradient(135deg, #f5f1f0 0%, #faf8f7 100%);
+            color: #3d2a2a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 3px solid #6b3a3a;
+            padding-bottom: 30px;
+        }
+
+        .logo {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 20px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(107, 58, 58, 0.15);
+        }
+
+        .logo img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: contain;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #6b3a3a;
+            margin-bottom: 10px;
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: 1.1em;
+            color: #a85a6a;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        .since {
+            font-size: 0.95em;
+            color: #8b5a6a;
+            margin-bottom: 15px;
+        }
+
+        /* Sections */
+        .menu-section {
+            margin-bottom: 45px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #6b3a3a;
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #d4a5a5;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: normal;
+        }
+
+        .section-subtitle {
+            font-size: 0.95em;
+            color: #a85a6a;
+            text-align: center;
+            margin-top: -20px;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        /* Menu Items */
+        .menu-items {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline; /* Alinha o texto pela base */
+            padding: 10px 0;
+            border-bottom: 1px dotted #d4a5a5;
+            gap: 15px;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-info {
+            flex: 1;
+            min-width: 0; /* Permite que o texto quebre se necessário */
+        }
+
+        .item-name {
+            font-size: 1.1em;
+            color: #3d2a2a;
+            font-weight: 600;
+            word-wrap: break-word;
+        }
+
+        .item-note {
+            font-size: 0.8em;
+            color: #8b5a6a;
+            font-style: italic;
+            margin-top: 4px;
+        }
+
+        .item-price {
+            font-size: 1.1em;
+            color: #6b3a3a;
+            font-weight: bold;
+            text-align: right;
+            white-space: nowrap; /* Impede que o preço quebre em duas linhas */
+            flex-shrink: 0; /* Garante que o preço não encolha */
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 3px solid #6b3a3a;
+            color: #8b5a6a;
+        }
+
+        .footer-note {
+            font-size: 0.95em;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            min-width: 140px;
+        }
+
+        .contact-btn-call {
+            background-color: #6b3a3a;
+            color: white;
+        }
+
+        .contact-btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .contact-icon {
+            margin-right: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .section-title {
+                font-size: 1.3em;
+            }
+
+            .item-name, .item-price {
+                font-size: 1em;
+            }
+
+            .logo {
+                width: 110px;
+                height: 110px;
+            }
+
+            .logo img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .contact-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663146201956/mWEcdPdtioEodfAL.jpg" alt="Sabores Doces Logo">
+            </div>
+            <h1>Sabores Doces</h1>
+            <p class="tagline">Doces e Salgados Artesanais</p>
+            <p class="since">Desde 2022</p>
+        </div>
+
+        <!-- Doces Section -->
+        <div class="menu-section">
+            <h2 class="section-title">Doces</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Quindins</div></div>
+                    <div class="item-price">700 MZN</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Salame de Chocolate</div></div>
+                    <div class="item-price">700 MZN</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Profiteroles</div></div>
+                    <div class="item-price">600 MZN</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Eclairs</div></div>
+                    <div class="item-price">750 MZN</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Bolo de Bolacha</div></div>
+                    <div class="item-price">1300 MZN</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brigadeiros Section -->
+        <div class="menu-section">
+            <h2 class="section-title">Brigadeiros</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Tradicional</div></div>
+                    <div class="item-price">520 MZN</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Tradicional C/ Smarties</div></div>
+                    <div class="item-price">570 MZN</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Tradicional C/ Kinder Bueno</div></div>
+                    <div class="item-price">700 MZN</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Ninho Simples</div></div>
+                    <div class="item-price">570 MZN</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Ninho C/ Nutella</div></div>
+                    <div class="item-price">620 MZN</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Nutella</div></div>
+                    <div class="item-price">700 MZN</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Lotus Biscoff</div></div>
+                    <div class="item-price">700 MZN</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sobremesas Section -->
+        <div class="menu-section">
+            <h2 class="section-title">Sobremesas</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Tiramisu</div></div>
+                    <div class="item-price">2600 MZN</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Pavê de Ninho</div></div>
+                    <div class="item-price">2500 MZN</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Mousse de Maracujá</div></div>
+                    <div class="item-price">1500 MZN</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Cheesecake de Frutos Vermelhos</div></div>
+                    <div class="item-price">2600 MZN</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Cheesecake de Maracujá</div></div>
+                    <div class="item-price">2600 MZN</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Cheesecake de Lotus Biscoff</div></div>
+                    <div class="item-price">2900 MZN</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Mini Cheesecakes (Unidade)</div>
+                        <div class="item-note">Encomendas a partir de 10 unidades, podendo combinar até 3 sabores.</div>
+                    </div>
+                    <div class="item-price">320 MZN</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Salgados Section -->
+        <div class="menu-section">
+            <h2 class="section-title">Salgados</h2>
+            <p class="section-subtitle">Congelados / Prontos</p>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Rolinhos de Queijo</div></div>
+                    <div class="item-price">600 / 700 MZN</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Cheeseballs</div></div>
+                    <div class="item-price">380 / 430 MZN</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><div class="item-name">Pãezinhos Recheados C/ Frango</div></div>
+                    <div class="item-price">500 / 550 MZN</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p class="footer-note">Para encomendas, entre em contacto connosco</p>
+            <div class="contact-buttons">
+                <a href="tel:+258872980894" class="contact-btn contact-btn-call">
+                    <span class="contact-icon">📞</span>
+                    Ligar
+                </a>
+                <a href="https://wa.me/258872980894?text=Olá!%20Gostaria%20de%20fazer%20uma%20encomenda%20na%20Sabores%20Doces." class="contact-btn contact-btn-whatsapp">
+                    <span class="contact-icon">💬</span>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
